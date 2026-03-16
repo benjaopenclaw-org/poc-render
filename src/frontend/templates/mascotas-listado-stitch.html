@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pet Management - List View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d442",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102215",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header Section -->
+<header class="sticky top-0 z-10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-primary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary text-2xl">pets</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight">PetAdmin</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
+<span class="text-xs font-bold text-primary">JD</span>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto pb-24">
+<!-- Welcome & Title -->
+<div class="px-4 pt-6 pb-2">
+<h2 class="text-2xl font-bold">Mascotas de la casa</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400">Gestiona los integrantes de tu familia</p>
+</div>
+<!-- Navigation Tabs -->
+<div class="px-4 border-b border-slate-200 dark:border-slate-800">
+<div class="flex gap-6">
+<a class="border-b-2 border-primary py-3 text-sm font-bold text-slate-900 dark:text-slate-100" href="#">Listado</a>
+<a class="border-b-2 border-transparent py-3 text-sm font-medium text-slate-500 hover:text-slate-700" href="#">Resumen</a>
+<a class="border-b-2 border-transparent py-3 text-sm font-medium text-slate-500 hover:text-slate-700" href="#">Cuidados</a>
+</div>
+</div>
+<!-- KPI Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4">
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-xl shadow-sm">
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Total Mascotas</p>
+<div class="flex items-end justify-between mt-1">
+<span class="text-2xl font-bold">8</span>
+<span class="material-symbols-outlined text-primary/40">groups</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-xl shadow-sm">
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Vacunadas</p>
+<div class="flex items-end justify-between mt-1">
+<span class="text-2xl font-bold">6</span>
+<span class="material-symbols-outlined text-blue-500/40">vaccines</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-xl shadow-sm">
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider text-rose-500">Atención</p>
+<div class="flex items-end justify-between mt-1">
+<span class="text-2xl font-bold text-rose-500">2</span>
+<span class="material-symbols-outlined text-rose-500/40">priority_high</span>
+</div>
+</div>
+</div>
+<!-- Search and Action Bar -->
+<div class="px-4 py-2 flex flex-col gap-3">
+<div class="flex gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="w-full bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-primary focus:border-primary" placeholder="Buscar mascota..." type="text"/>
+</div>
+<button class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-2 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">filter_list</span>
+</button>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-2.5 rounded-lg flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-sm shadow-primary/20">
+<span class="material-symbols-outlined">add</span>
+                Agregar Mascota
+            </button>
+</div>
+<!-- Data List (Responsive Table) -->
+<div class="px-4 py-4 space-y-3">
+<!-- Row 1 -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-slate-100">
+<img class="w-full h-full object-cover" data-alt="Beagle dog looking curious" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp2QB_6-EYRRUERyYl8VPNd9kvNKdQLsKX6fydpNS3m36FvnM1ySPHCI96dU-3OOlOep303fia9y3ItWOXeJ_7rCzdZjoKqEXMZ1cIobEUQU9RyFBLPzj5FcysfhqOusIgXCUNTkTil4WvJg1HYwPlCpzZ1asZeDPTaIYBYVlrAM0I_pzzJy7rb2fy9BiYeL39lr49a7RXf6b_aOOW0z1WJfDI6vR33VaWPogxMz2HxaBF7gBd9Av6lABpapLstXyAk81nZHTKUg"/>
+</div>
+<div>
+<h4 class="font-bold text-sm">Bruno</h4>
+<p class="text-xs text-slate-500">Perro • Beagle</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">Saludable</span>
+<div class="flex gap-2">
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="text-slate-400 hover:text-rose-500"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-slate-100">
+<img class="w-full h-full object-cover" data-alt="Siamese cat portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg-28kTOwZF_trhsxDOw_UnnEJcfM6c-1lVDBbClUyE9S_n6YyVRWh3H4PEsj4Jm92t9S4GrLP4j0Fgb-Shxazg0lD9AScOD-9UCuoXJzFHXlUVCGubGYRpuOyuw6OyGBMock7kPQ8jeg4Dz9BE9gZFvWsL-JK3VKVNp0OnriUYtU_Qs8ZLKqqS4aAt3NClcsTOReuWBJyJji-W5eRhPMpsH4ktahwCp1Y5xxWa79PsbbxuhCaIZwgidMGUz8UVqCfQNk7xqLpCQ"/>
+</div>
+<div>
+<h4 class="font-bold text-sm">Luna</h4>
+<p class="text-xs text-slate-500">Gato • Siamés</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">Cita Pendiente</span>
+<div class="flex gap-2">
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="text-slate-400 hover:text-rose-500"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-slate-100">
+<img class="w-full h-full object-cover" data-alt="Golden Retriever sitting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1YNS5ufBf9jAT0cQyCA1w_G7E8RNg2dg1RQih09ulAe4kM8z0abmFvQS7NuYWmofOB4s-Zcqk5gscyvxhPLm4jzfFMmrCZ-DVHO_IBEiVZjYb-eTcsZkOseTqGgoUXxTxuEzXjpaQA3KQiBWIiZh3nlFRgXc7UjhIPvzCDlEQOuq2lVhUK3QMC5o8D8WzpMK8B5rjGvR2czCFYt3UEbcPbf81hdSLf9WEJEQfE8SLn2k81n6r9eWbwwG3aclUSrWrFFYbZ-0UmQ"/>
+</div>
+<div>
+<h4 class="font-bold text-sm">Max</h4>
+<p class="text-xs text-slate-500">Perro • Golden</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">Saludable</span>
+<div class="flex gap-2">
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="text-slate-400 hover:text-rose-500"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-xl shadow-sm flex items-center justify-between border-l-4 border-l-rose-500">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-slate-100">
+<img class="w-full h-full object-cover" data-alt="Small hamster eating" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUSUXhVd75KfzFC6jlbGgL6XiqQRcKod6klPD7J3ubXBIeHXwW4dAcVqJD-UUEdYuIud5-TAjIQuaYpL2Czz7F4CRCqLJ1Gvf6I7VWkN-3KFKXMiji47UVfXocSa_wMfVimyAl_8Zivw40fq3-25ciWSrw0UqQ2FpNIx6EgDXB65NDx-1T85WSojCceqh_YZO4JYF79qxACTe6KWxyJ2yOWeKCJQOGwQIRbcmAvlzDf5VeDc0tGnkxK1C0xk5J6FLMqkQkvvFSBQ"/>
+</div>
+<div>
+<h4 class="font-bold text-sm">Pepe</h4>
+<p class="text-xs text-slate-500">Hámster • Sirio</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400">Vacuna Urgente</span>
+<div class="flex gap-2">
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="text-slate-400 hover:text-rose-500"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-center p-4">
+<button class="text-sm font-semibold text-primary border border-primary/20 bg-primary/5 px-4 py-2 rounded-full">
+                Cargar más mascotas
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 px-6 py-2 pb-6 flex justify-between items-center z-20">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pets</span>
+<span class="text-[10px] font-bold">Mascotas</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">stethoscope</span>
+<span class="text-[10px] font-medium">Salud</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-medium">Calendario</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</a>
+</nav>
+</body></html>

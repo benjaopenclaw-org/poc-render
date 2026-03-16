@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Work Sans', sans-serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Background Dashboard (Simulated Dimmed State) -->
+<div class="fixed inset-0 z-0 flex flex-col p-4 opacity-40 grayscale-[0.5]">
+<div class="flex items-center justify-between mb-6">
+<div class="h-10 w-10 rounded-full bg-primary/20"></div>
+<div class="h-8 w-32 bg-slate-200 dark:bg-slate-800 rounded-lg"></div>
+<span class="material-symbols-outlined text-slate-400">notifications</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="h-32 bg-white dark:bg-slate-800 rounded-xl shadow-sm"></div>
+<div class="h-32 bg-white dark:bg-slate-800 rounded-xl shadow-sm"></div>
+<div class="h-64 col-span-2 bg-white dark:bg-slate-800 rounded-xl shadow-sm"></div>
+</div>
+</div>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-slate-900/60 backdrop-blur-sm p-0 sm:p-4">
+<!-- Bottom Sheet / Modal Container -->
+<div class="relative flex h-[90vh] sm:h-auto max-h-[90vh] w-full max-w-lg flex-col bg-white dark:bg-slate-900 rounded-t-xl sm:rounded-xl overflow-hidden shadow-2xl">
+<!-- BottomSheetHandle (Mobile Visual) -->
+<button class="flex h-6 w-full items-center justify-center sm:hidden">
+<div class="h-1.5 w-12 rounded-full bg-slate-300 dark:bg-slate-700"></div>
+</button>
+<!-- Header -->
+<div class="flex items-center justify-between px-6 pt-4 pb-2">
+<h2 class="text-2xl font-bold tracking-tight">Add Pet Profile</h2>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto px-6 py-4 hide-scrollbar">
+<!-- Upload Photo Section -->
+<div class="flex flex-col items-center mb-8">
+<div class="relative group">
+<div class="h-32 w-32 rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-dashed border-slate-300 dark:border-slate-700 flex items-center justify-center overflow-hidden transition-all group-hover:border-primary">
+<!-- Placeholder Image -->
+<div class="absolute inset-0 bg-cover bg-center opacity-40" data-alt="Close up of a cute beagle puppy face" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSyUh3H6nSgJx5--uUP1o6YKkn8_1UYIUr6Ajiw5yJcqX9wzKlFbZb091gO-rGl108_KN_bZiiXojOFaGONY47B0ABnB3dT_h2MUsTOPDxdXuit7uYrvFKD0aTLIyedSaI61uoqNiwsniSOxMAF4x_7RsVtKs7GUDRt75L7wY42g1hI365F8nr9c9Et__-JPlSoA0abe67xczYvRCjqpPMBR3NfI6CH0ivnqPow63jARfkrJeolwDs1E6uou6VH0-gNzbw49S_2wX_')"></div>
+<span class="material-symbols-outlined text-4xl text-slate-400 group-hover:text-primary relative z-10">photo_camera</span>
+</div>
+<button class="absolute bottom-0 right-0 bg-primary text-white p-2 rounded-full shadow-lg border-2 border-white dark:border-slate-900">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+</div>
+<p class="mt-3 text-sm font-medium text-slate-500">Tap to upload profile photo</p>
+</div>
+<!-- Form Fields -->
+<div class="space-y-6">
+<!-- Pet Name -->
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Pet Name</label>
+<input class="w-full h-12 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="e.g. Luna" type="text"/>
+</div>
+<!-- Species Selection -->
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Species</label>
+<div class="flex gap-3 flex-wrap">
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border-2 border-primary text-primary font-medium">
+<span class="material-symbols-outlined text-[20px]">pets</span>
+<span class="text-sm">Dog</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-medium hover:border-primary/50">
+<span class="material-symbols-outlined text-[20px]">pets</span>
+<span class="text-sm">Cat</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-medium hover:border-primary/50">
+<span class="material-symbols-outlined text-[20px]">cruelty_free</span>
+<span class="text-sm">Rabbit</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-medium hover:border-primary/50">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+<span class="text-sm">Other</span>
+</button>
+</div>
+</div>
+<!-- Breed & Age Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Breed</label>
+<input class="w-full h-12 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none" placeholder="Golden Retriever" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Age (Years)</label>
+<div class="flex h-12 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 overflow-hidden">
+<button class="flex-1 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 border-r border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<div class="flex-[2] flex items-center justify-center font-bold">3</div>
+<button class="flex-1 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 border-l border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Weight & Health Status -->
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Weight (kg)</label>
+<input class="w-full h-12 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none" placeholder="12.5" type="number"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Health Status</label>
+<div class="relative">
+<select class="w-full h-12 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none appearance-none">
+<option value="healthy">Healthy</option>
+<option value="observation">Observation</option>
+<option value="treatment">Treatment</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Toggles and Selectors -->
+<div class="space-y-4 pt-2">
+<div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800 rounded-xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500">verified_user</span>
+<div>
+<p class="font-semibold text-sm">Vaccination Status</p>
+<p class="text-xs text-slate-500">Up to date</p>
+</div>
+</div>
+<!-- Simple Switch -->
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Next Care Date</label>
+<div class="relative">
+<input class="w-full h-12 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none" type="date" value="2023-12-15"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">calendar_today</span>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Notes</label>
+<textarea class="w-full p-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none resize-none" placeholder="Allergies, favorite treats, or behavioral notes..." rows="3"></textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md">
+<button class="w-full h-14 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-[0.98] mb-4">
+                    Save Profile
+                </button>
+<button class="w-full text-slate-500 font-semibold text-sm hover:text-slate-800 dark:hover:text-slate-200 transition-colors py-2">
+                    Cancel
+                </button>
+</div>
+</div>
+</div>
+</body></html>

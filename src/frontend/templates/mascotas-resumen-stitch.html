@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pet Management - Resumen &amp; Cuidados</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d442",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102215",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-display">
+<!-- Header -->
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="flex items-center p-4 justify-between">
+<div class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</div>
+<h1 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center">Gestión de Mascotas</h1>
+<div class="flex w-10 items-center justify-end">
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<div class="px-4">
+<div class="flex border-b border-primary/10 gap-8">
+<a class="flex flex-col items-center justify-center border-b-2 border-primary text-slate-900 dark:text-slate-100 pb-3 pt-2" href="#">
+<p class="text-sm font-bold tracking-wide">Resumen</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-2" href="#">
+<p class="text-sm font-bold tracking-wide">Cuidados</p>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto pb-24">
+<!-- Summary Section: Grouped by Species -->
+<section class="p-4 space-y-4">
+<div class="flex items-center justify-between pt-2">
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-extrabold tracking-tight">Especies en casa</h2>
+<span class="text-xs font-semibold bg-primary/20 text-primary px-2 py-1 rounded-full uppercase">5 Mascotas</span>
+</div>
+<!-- Species Card: Dogs -->
+<div class="relative overflow-hidden flex flex-col gap-3 rounded-xl bg-white dark:bg-slate-800 p-4 shadow-sm border border-primary/5">
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-red-500 font-bold text-xs uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm filled-icon">error</span>
+<span>Vacuna pendiente</span>
+</div>
+<p class="text-slate-900 dark:text-slate-100 text-lg font-bold">Perros</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">3 integrantes (Max, Luna, Toby)</p>
+</div>
+<div class="h-16 w-16 bg-cover bg-center rounded-lg shadow-inner" data-alt="Golden retriever puppy smiling at the camera" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCWY_tytAO2hZnahOEV0lSstGapP5kx_ba7XRs6UBjsf4t-kWAtYlf-TbSC1C_YpslkmvFeTIjYanv_pM-Mp2Vm5j0cQDKPiVsjMz08emSnoVDh2j72WsZf2q0ROakj_NrbCm9sTT8poZP-Igzt98DmO3JHwBWssvz1AFuVULJug55sp5KXSBm357VILukBg9XfGrwWeQb-im-_NY5WtfWUn1Y-Z662_iq7eoB1ZhiXBao2CEUFqJOWTdhRQQy1ma5NC9sFZWbSEA");'></div>
+</div>
+<div class="flex items-center justify-between mt-2">
+<button class="flex items-center justify-center rounded-lg h-9 px-4 bg-primary/10 text-primary gap-1 text-sm font-bold transition-colors hover:bg-primary/20">
+<span>Ver todos</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Species Card: Cats -->
+<div class="relative overflow-hidden flex flex-col gap-3 rounded-xl bg-white dark:bg-slate-800 p-4 shadow-sm border border-primary/5">
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm filled-icon">check_circle</span>
+<span>Todo al día</span>
+</div>
+<p class="text-slate-900 dark:text-slate-100 text-lg font-bold">Gatos</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">2 integrantes (Bella, Oliver)</p>
+</div>
+<div class="h-16 w-16 bg-cover bg-center rounded-lg shadow-inner" data-alt="Sleepy ginger cat lying on a sofa" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAqXIf3FGbdn5C5EfF6sHlA56mG2eizNSckM1aOzuveSQQdX9qy1qsOoiogc2jKhxmH0TB-Q9VKAs3SNFs58BG57LgZDBji5ht-faYDU0O-Qwt9SEi3UJNwy2B_9gUhhDG63MtAJjwzVWaKSPSRHYQyHoB_9-VN4sCa6uo1sR0pplagpxmCtDEFXscMxksYS5_WNrno9kIIvhN6JeyRdJPN8xs8jPkDPsRbUk8sw27Jez5Fy64cqhaoN_XqXzsucGgFLD_UxgD70w");'></div>
+</div>
+<div class="flex items-center justify-between mt-2">
+<button class="flex items-center justify-center rounded-lg h-9 px-4 bg-primary/10 text-primary gap-1 text-sm font-bold transition-colors hover:bg-primary/20">
+<span>Ver todos</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Care Reminders Section -->
+<section class="p-4 space-y-4">
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-extrabold tracking-tight">Próximos Recordatorios</h2>
+<div class="space-y-3">
+<!-- Reminder Item 1 -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800 p-3 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex flex-col items-center justify-center bg-primary/10 text-primary rounded-lg p-2 min-w-[56px]">
+<span class="text-xs font-bold uppercase">Oct</span>
+<span class="text-xl font-black">12</span>
+</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-slate-100 font-bold text-base">Desparasitación Mensual</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">pets</span> Max &amp; Luna
+                        </p>
+</div>
+<button class="text-slate-400">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Reminder Item 2 -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800 p-3 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex flex-col items-center justify-center bg-blue-500/10 text-blue-500 rounded-lg p-2 min-w-[56px]">
+<span class="text-xs font-bold uppercase">Oct</span>
+<span class="text-xl font-black">15</span>
+</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-slate-100 font-bold text-base">Cita Veterinaria</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">pets</span> Bella
+                        </p>
+</div>
+<button class="text-slate-400">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Reminder Item 3 -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-800 p-3 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex flex-col items-center justify-center bg-orange-500/10 text-orange-500 rounded-lg p-2 min-w-[56px]">
+<span class="text-xs font-bold uppercase">Diario</span>
+<span class="material-symbols-outlined">pill</span>
+</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-slate-100 font-bold text-base">Medicación Artritis</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">pets</span> Toby (9:00 AM)
+                        </p>
+</div>
+<button class="text-slate-400">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<button class="w-full flex items-center justify-center py-3 border-2 border-dashed border-primary/30 rounded-xl text-primary font-bold text-sm gap-2">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+                Añadir recordatorio
+            </button>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark border-t border-primary/10 px-4 pb-6 pt-2 z-20">
+<div class="flex gap-2 max-w-md mx-auto">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined filled-icon">home</span>
+<p class="text-[10px] font-bold leading-normal tracking-wide uppercase">Inicio</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">pets</span>
+<p class="text-[10px] font-bold leading-normal tracking-wide uppercase">Mascotas</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-900 dark:text-slate-100" href="#">
+<div class="bg-primary text-white rounded-full p-2 -mt-8 shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined filled-icon text-2xl">calendar_today</span>
+</div>
+<p class="text-[10px] font-bold leading-normal tracking-wide uppercase mt-1">Cuidados</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-[10px] font-bold leading-normal tracking-wide uppercase">Perfil</p>
+</a>
+</div>
+</nav>
+</body></html>

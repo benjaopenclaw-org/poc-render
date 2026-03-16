@@ -1,0 +1,19 @@
+{
+  "name": "poc-render",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "src/frontend/app",
+    "src/microservices/*"
+  ],
+  "scripts": {
+    "dev:frontend": "npm run dev --workspace frontend",
+    "build:frontend": "npm run build --workspace frontend",
+    "dev:ms-users": "npm run dev --workspace ms-users",
+    "build:ms-users": "npm run build --workspace ms-users",
+    "dev:ms-students": "npm run dev --workspace ms-students",
+    "build:ms-students": "npm run build --workspace ms-students",
+    "dev:ms-pets": "npm run dev --workspace ms-pets",
+    "build:ms-pets": "npm run build --workspace ms-pets"
+  }
+}

@@ -1,0 +1,15 @@
+erDiagram
+    PETS {
+        char id PK
+        varchar name
+        varchar species
+        varchar breed
+        int age_years
+        enum health_status
+        enum vaccination_status
+        varchar photo_url
+        text notes
+        datetime next_care_at
+        datetime created_at
+        datetime updated_at
+    }

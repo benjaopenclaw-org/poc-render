@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mascotas de la Casa - Gestión Editorial</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#49bd0f",
+                        "olive": "#669a4c",
+                        "charcoal": "#121b0d",
+                        "ivory": "#f9fcf8",
+                        "terracotta": "#c65d3b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#162210",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Newsreader', serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-charcoal dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header / Top Bar -->
+<header class="sticky top-0 z-50 flex items-center bg-ivory/95 dark:bg-background-dark/95 backdrop-blur-sm p-4 border-b border-olive/10 justify-between">
+<div class="text-charcoal dark:text-slate-100 flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</div>
+<h1 class="text-charcoal dark:text-slate-100 text-xl font-bold leading-tight flex-1 text-center font-display italic">
+                Mascotas de la casa
+            </h1>
+<div class="flex w-10 items-center justify-end">
+<div class="flex size-10 items-center justify-center rounded-full bg-olive/10">
+<span class="material-symbols-outlined text-olive">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 pb-24">
+<!-- Tabs -->
+<nav class="sticky top-[72px] z-40 bg-ivory dark:bg-background-dark border-b border-olive/10">
+<div class="flex px-4 gap-8">
+<a class="flex flex-col items-center justify-center border-b-2 border-primary text-charcoal dark:text-slate-100 pb-3 pt-4" href="#">
+<p class="text-sm font-bold tracking-wide uppercase">Resumen</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-olive/60 pb-3 pt-4" href="#">
+<p class="text-sm font-bold tracking-wide uppercase">Cuidados</p>
+</a>
+</div>
+</nav>
+<!-- Section: Resumen Editorial -->
+<section class="px-4 pt-6">
+<div class="flex items-baseline justify-between mb-4">
+<h2 class="text-3xl font-bold font-display italic text-charcoal dark:text-slate-100">Caninos</h2>
+<span class="text-xs uppercase tracking-widest text-olive/60 font-bold">2 Miembros</span>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Pet Card 1 -->
+<div class="bg-white dark:bg-slate-900/50 rounded-xl p-4 shadow-sm border border-olive/5 flex gap-4">
+<div class="size-20 rounded-lg overflow-hidden shrink-0 border border-olive/10">
+<img class="w-full h-full object-cover" data-alt="Golden Retriever portrait looking friendly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc20bdVHqGx5Uf4bfE5HlWkU197e5Dx343OJ0te2_NjaHa_fY7BaXFxs2Bp4TwtHy__xqKoB8_ncOSWTxCgLKYimCTVbm8HoP8d7gCyBbDTrZPtlr_xW3cYHmaaG1myAmWeGDHVlPcW258t696BgF4-GfqFukyRt_mB9UG1NeCUDPXauoCa-mgBRRMJczppCC1w6aLdw-K6XF3dD7QCGZZBDu68Q1qUcQPUAkBTYBGjCY-IqywmXwAl5heCcb5cS842T2oMyOL6A"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="text-xl font-bold font-display">Luna</h3>
+<span class="material-symbols-outlined text-terracotta text-xl" title="Alerta de salud">error</span>
+</div>
+<p class="text-sm text-olive/70 font-medium">Golden Retriever • 4 años</p>
+</div>
+<div class="mt-2 flex items-center gap-1 text-xs text-terracotta font-bold">
+<span class="material-symbols-outlined text-sm">vaccines</span>
+<span>Refuerzo Rabia pendiente</span>
+</div>
+</div>
+</div>
+<!-- Pet Card 2 -->
+<div class="bg-white dark:bg-slate-900/50 rounded-xl p-4 shadow-sm border border-olive/5 flex gap-4">
+<div class="size-20 rounded-lg overflow-hidden shrink-0 border border-olive/10">
+<img class="w-full h-full object-cover" data-alt="Small mixed breed dog sitting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBon-sfJBnI0J0vSOFEnjLEGTEiAtAc2BOdP6yoyg0Hv0FyqURb8GC8EJBcFCKCJdLjBvfMty4s2rEHdlKYuoNlzFJd-r5HRwPw93aiKoSd_tJM86OJnL7E8BQv9uh5YHIRR2nmLzwUN9hSVlj9EKOqxp9-Z-r-KscG5xUnIgjSh3yJG_T0mQHIghFS0buohNAsbO1uHG5VT3B2ApuiJbEbE3jehab8D4AUtF2iHO8oQEf2yCQ_hjzptAkbHzX-kJpBR3rM_CZT8Q"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="text-xl font-bold font-display">Max</h3>
+<span class="material-symbols-outlined text-olive text-xl">check_circle</span>
+</div>
+<p class="text-sm text-olive/70 font-medium">Terrier Mix • 2 años</p>
+</div>
+<div class="mt-2 flex items-center gap-1 text-xs text-olive font-bold">
+<span class="material-symbols-outlined text-sm">spa</span>
+<span>Estado: Óptimo</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Felinos -->
+<section class="px-4 pt-8">
+<div class="flex items-baseline justify-between mb-4">
+<h2 class="text-3xl font-bold font-display italic text-charcoal dark:text-slate-100">Felinos</h2>
+<span class="text-xs uppercase tracking-widest text-olive/60 font-bold">1 Miembro</span>
+</div>
+<div class="bg-white dark:bg-slate-900/50 rounded-xl p-4 shadow-sm border border-olive/5 flex gap-4">
+<div class="size-20 rounded-lg overflow-hidden shrink-0 border border-olive/10">
+<img class="w-full h-full object-cover" data-alt="Calico cat looking curious" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQXV8okGBrbbTF3pyiFVwY970FqxECeWYkK9IdD5JyVcF_ZzIOfXyWN0WG7wiK7soWuUP8_yTie5Ten1JyrP-IgAQ5wA0o7upQl48UilS42F-NRKyoE2axzhcYcYUDY6w0oo_gdRen4vQjV_FP_ydmRV92lsKPDZ70JWaAOgHnojadvhtlmd0Z-PnGGzyCuYQfjwhk8sr8-oJt8jDUhqsvF-SW6VylqgFd68WGMMT3sBjTkjVMufgm3hB1thk3EW6fPKX5-6TCBQ"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="text-xl font-bold font-display">Oliver</h3>
+<span class="material-symbols-outlined text-olive text-xl">check_circle</span>
+</div>
+<p class="text-sm text-olive/70 font-medium">Siamés • 6 años</p>
+</div>
+<div class="mt-2 flex items-center gap-1 text-xs text-olive font-bold">
+<span class="material-symbols-outlined text-sm">monitor_heart</span>
+<span>Próximo chequeo: Oct 12</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Próximos Cuidados (Schedule) -->
+<section class="px-4 pt-10">
+<div class="mb-6">
+<h2 class="text-2xl font-bold font-display text-charcoal dark:text-slate-100">Próximos Cuidados</h2>
+<p class="text-sm text-olive/60 italic">Agenda para la semana</p>
+</div>
+<div class="relative space-y-0 pl-8 before:absolute before:left-[11px] before:top-2 before:h-[calc(100%-16px)] before:w-[1px] before:bg-olive/20">
+<!-- Care Item 1 -->
+<div class="relative pb-8">
+<div class="absolute -left-[29px] top-1 size-5 rounded-full border-4 border-ivory dark:border-background-dark bg-terracotta"></div>
+<div class="flex flex-col">
+<span class="text-xs font-bold uppercase tracking-widest text-terracotta">Mañana • 09:00 AM</span>
+<h4 class="text-lg font-bold font-display mt-1">Vacuna Rabia - Luna</h4>
+<p class="text-sm text-olive/70">Clínica Veterinaria 'San Roque'</p>
+</div>
+</div>
+<!-- Care Item 2 -->
+<div class="relative pb-8">
+<div class="absolute -left-[29px] top-1 size-5 rounded-full border-4 border-ivory dark:border-background-dark bg-olive"></div>
+<div class="flex flex-col">
+<span class="text-xs font-bold uppercase tracking-widest text-olive/60">Jueves • 16:30 PM</span>
+<h4 class="text-lg font-bold font-display mt-1">Baño &amp; Corte - Max</h4>
+<p class="text-sm text-olive/70">Pet Spa Editorial</p>
+</div>
+</div>
+<!-- Care Item 3 -->
+<div class="relative">
+<div class="absolute -left-[29px] top-1 size-5 rounded-full border-4 border-ivory dark:border-background-dark bg-olive/30"></div>
+<div class="flex flex-col">
+<span class="text-xs font-bold uppercase tracking-widest text-olive/60">Sábado • 10:00 AM</span>
+<h4 class="text-lg font-bold font-display mt-1">Desparasitación - Oliver</h4>
+<p class="text-sm text-olive/70">Administración en casa</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-ivory/95 dark:bg-background-dark/95 backdrop-blur-md border-t border-olive/10 px-4 pb-6 pt-2">
+<div class="flex justify-between items-center max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Inicio</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-olive/40" href="#">
+<span class="material-symbols-outlined">pets</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Mascotas</span>
+</a>
+<div class="relative -top-6">
+<button class="size-14 rounded-full bg-primary text-white shadow-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-olive/40" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Agenda</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-olive/40" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Ajustes</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#eb6347", // Terracotta
+                        "background-light": "#f8f6f6", // Ivory/Off-white
+                        "background-dark": "#211411", // Charcoal/Dark Brown
+                        "neutral-muted": "#975a4e",
+                        "accent-olive": "#6b705c",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+    </style>
+<title>Pet Management - Listado</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex flex-col h-screen max-w-[480px] mx-auto bg-background-light border-x border-primary/10 shadow-2xl relative overflow-hidden">
+<!-- Top Header -->
+<header class="p-6 pb-2">
+<div class="flex items-center justify-between mb-6">
+<div class="size-10 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden border border-primary/20">
+<img alt="Profile avatar" class="w-full h-full object-cover" data-alt="User profile picture in a circle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiDLawyiO3N0JMZG1Eac4wgFdD2jL7t2AdCnkj-hneBw3BzrldfQj760P_Sc5JQbYw5i-QNlfn7J8kd3Sa1sDw1xtieX43Wh3VUt_lzM1R9Teu0o0i1-ylLR9Mc7DKIYaCkPOF-eZcNq3Xyqo7ugtTwMz93isbmpmRsitKrjuepp12yZEKmIJyMP39avKSS1kpoJ2UMVk3JAcLxVPzT-QNRu-5vXXVaTWThDX0S7_mmwQ9hBD6SaGIMrvI0Bg0Ie93KhO2sPeGJw"/>
+</div>
+<button class="text-neutral-muted">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+<h1 class="text-3xl font-bold tracking-tight text-background-dark">Mascotas de la casa</h1>
+</header>
+<!-- Tabs Navigation -->
+<div class="px-6 border-b border-primary/10">
+<nav class="flex gap-8">
+<a class="border-b-2 border-primary text-background-dark py-4 text-sm font-semibold" href="#">Listado</a>
+<a class="border-b-2 border-transparent text-neutral-muted py-4 text-sm font-medium" href="#">Calendario</a>
+<a class="border-b-2 border-transparent text-neutral-muted py-4 text-sm font-medium" href="#">Configuración</a>
+</nav>
+</div>
+<!-- Main Content Area (Scrollable) -->
+<main class="flex-1 overflow-y-auto px-6 py-6 pb-24">
+<!-- KPI Section -->
+<div class="grid grid-cols-3 gap-3 mb-8">
+<div class="bg-primary/5 p-4 rounded-xl border border-primary/10">
+<p class="text-[10px] uppercase tracking-wider font-bold text-primary mb-1">Total</p>
+<p class="text-2xl font-bold text-background-dark">12</p>
+</div>
+<div class="bg-accent-olive/5 p-4 rounded-xl border border-accent-olive/10">
+<p class="text-[10px] uppercase tracking-wider font-bold text-accent-olive mb-1">Vacunados</p>
+<p class="text-2xl font-bold text-background-dark">08</p>
+</div>
+<div class="bg-primary/10 p-4 rounded-xl border border-primary/20">
+<p class="text-[10px] uppercase tracking-wider font-bold text-primary mb-1">Atención</p>
+<p class="text-2xl font-bold text-background-dark">02</p>
+</div>
+</div>
+<!-- Filter & Action Bar -->
+<div class="flex flex-col gap-4 mb-8">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-neutral-muted text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-3 bg-white border-none rounded-xl text-sm focus:ring-1 focus:ring-primary shadow-sm placeholder:text-neutral-muted/50" placeholder="Buscar mascota..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-white px-4 py-3 rounded-xl text-sm font-medium text-background-dark border border-primary/5 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+                        Filtros
+                    </button>
+<button class="bg-primary text-white px-6 py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-sm">add</span>
+                        Nueva Mascota
+                    </button>
+</div>
+</div>
+<!-- Pet List (Data View) -->
+<div class="space-y-4">
+<!-- Pet Item 1 -->
+<div class="bg-white p-4 rounded-xl shadow-sm border border-primary/5 flex items-center gap-4">
+<div class="size-14 rounded-full bg-slate-100 overflow-hidden border-2 border-white shadow-sm">
+<img alt="Pet Avatar" class="w-full h-full object-cover" data-alt="Portrait of a small golden retriever dog" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAWFIdhVrmkIQyj9-eR0N3eaKtRE2IPbKjCbqv7b5KeIxtPMQTmW0-OW5P6Q3nR3J7MX_naq2ZpjktZB2Y847l-FQ9rA-0CmeSMcwA6gr7V3rtiHjdHplwB-QbGG7Vw4obuoboATd9Jy6E-DWfBLlJFFPw0GRlsWoNauCycksL_j-j0WuxXjwX7B8pNxqpLb6Q5AgRFTotMvXILUw-x1pE6PKC-KkYdeS_0_gqcqReuwF-aZEMDzDxiIUOe7yn3ABDKRnPfpq9dw"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-background-dark">Cooper</h3>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-accent-olive/10 text-[10px] font-bold text-accent-olive uppercase tracking-tight">
+<span class="size-1.5 rounded-full bg-accent-olive"></span> Estable
+                            </span>
+</div>
+<p class="text-xs text-neutral-muted mb-1">Perro • Golden Retriever</p>
+<div class="flex items-center justify-between mt-2">
+<span class="text-[10px] bg-primary/5 text-primary px-2 py-1 rounded font-medium">Vacuna: Al día</span>
+<div class="flex gap-2">
+<button class="p-1 text-neutral-muted/50"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="p-1 text-neutral-muted/50"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pet Item 2 -->
+<div class="bg-white p-4 rounded-xl shadow-sm border border-primary/5 flex items-center gap-4">
+<div class="size-14 rounded-full bg-slate-100 overflow-hidden border-2 border-white shadow-sm">
+<img alt="Pet Avatar" class="w-full h-full object-cover" data-alt="Portrait of a black and white cat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSdGDO6R-0gwfjwrqw8FmfKMrG7roYt9B2u1V1UzypwPjc6j9W5-7jLZGqIg_gXqRH-17BsihHn87jefjSkxgzv3whD6JtQtQpbSGCSpUZzv0oqm1h6lIJIEAFU9Pw1jIysNAA3ccrELQP56nog2QKCPnpdLNt2xvVZY5P0O8yLVWXCKuLA8Cvop6bLEBkJKqfTWcmDIEOovJL7if0EzeFUEcuF1n_V410YZ3TnT_dfWKGjOgukXTqr2ERRs0iOsQT27-jtNjHnQ"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-background-dark">Luna</h3>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold text-primary uppercase tracking-tight">
+<span class="size-1.5 rounded-full bg-primary"></span> Atención
+                            </span>
+</div>
+<p class="text-xs text-neutral-muted mb-1">Gato • Siamés</p>
+<div class="flex items-center justify-between mt-2">
+<span class="text-[10px] bg-primary/5 text-primary px-2 py-1 rounded font-medium">Vacuna: Pendiente</span>
+<div class="flex gap-2">
+<button class="p-1 text-neutral-muted/50"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="p-1 text-neutral-muted/50"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pet Item 3 -->
+<div class="bg-white p-4 rounded-xl shadow-sm border border-primary/5 flex items-center gap-4">
+<div class="size-14 rounded-full bg-slate-100 overflow-hidden border-2 border-white shadow-sm">
+<img alt="Pet Avatar" class="w-full h-full object-cover" data-alt="A small white rabbit in a garden" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfb2vkqSLk0ttQwbtXWBsKwL2nnCwTQUN3O4sTHwbaH_Wl2lqabiufCGIU1_BJAWgSQCnkFw5vb0syGqXK_RP8N2LufQsaeAzGX2iOSZEp509hfuhgXhwNhUhGoMxZU25GFM_GP5FN6Q2lZqc5MRG9diiZFUiUpRR6L9tJoieMugQYEMZ837pkQWhC44CfoPkPnJFhu9Ev-w6IIaRrlrgrwQPnSh2p407tQWHjyioQPpHndYFhQg9Ke6h7bpBvU-rXi67Zjb_BHA"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-background-dark">Nube</h3>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-accent-olive/10 text-[10px] font-bold text-accent-olive uppercase tracking-tight">
+<span class="size-1.5 rounded-full bg-accent-olive"></span> Estable
+                            </span>
+</div>
+<p class="text-xs text-neutral-muted mb-1">Conejo • Cabeza de León</p>
+<div class="flex items-center justify-between mt-2">
+<span class="text-[10px] bg-primary/5 text-primary px-2 py-1 rounded font-medium">Vacuna: Al día</span>
+<div class="flex gap-2">
+<button class="p-1 text-neutral-muted/50"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="p-1 text-neutral-muted/50"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-lg border-t border-primary/10 flex justify-around items-center px-4 py-3 pb-6">
+<a class="flex flex-col items-center gap-1 text-neutral-muted" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-semibold uppercase tracking-tighter">Inicio</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">pets</span>
+<span class="text-[10px] font-semibold uppercase tracking-tighter">Mascotas</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-neutral-muted" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="text-[10px] font-semibold uppercase tracking-tighter">Salud</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-neutral-muted" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-semibold uppercase tracking-tighter">Perfil</span>
+</a>
+</nav>
+</div>
+</body></html>

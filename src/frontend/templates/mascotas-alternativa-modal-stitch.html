@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d442",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102215",
+                        "charcoal": "#1a1c1a",
+                        "ivory": "#fdfdfb",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 border-b border-primary/10">
+<div class="text-charcoal dark:text-slate-100 flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</div>
+<h1 class="text-charcoal dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 ml-2">Mascotas de la casa</h1>
+<div class="size-10 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+</header>
+<main class="flex-1 p-4 pb-24">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-charcoal dark:text-slate-100 text-2xl font-extrabold tracking-tight">Listado de Mascotas</h2>
+<button class="bg-primary text-white p-2 rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<div class="space-y-4 opacity-40 grayscale-[0.5]">
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-ivory dark:bg-slate-800 p-4 shadow-sm border border-primary/5">
+<div class="flex flex-[2_2_0px] flex-col justify-between">
+<div class="flex flex-col gap-1">
+<p class="text-charcoal dark:text-slate-100 text-base font-bold">Luna</p>
+<p class="text-slate-500 text-sm font-medium">Gato • Siamés</p>
+</div>
+<button class="flex items-center justify-center rounded-lg h-8 px-4 bg-primary/10 text-primary text-sm font-bold w-fit mt-4">
+<span>Editar</span>
+</button>
+</div>
+<div class="w-32 h-32 bg-center bg-no-repeat bg-cover rounded-xl" data-alt="A graceful siamese cat looking curious" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB7TgSzf3Uv6och6b7A9U0vthSOI1-ZPnZyW0j8a6AoZt33r4fX9-PPRoL5MWzz7YhPdJiMgvcQibFTeomHIIW9OlJJTstlOg5b-nl_wezfoYfQjvsNlcbXpqB5BKl6bcoqHowt4OvtOfn9OkWeXH1GiG5QE2OdVgk0hd0n-wygeOiywC6ZN8mQofQv9bjgfSAXRTJDZo3-_G1MIbxvWktBVwFtgwVbWa8ikdyX7aGP5So7wpp6a2CbwCAmse9L9VA62Oh_Dbv-Iw");'></div>
+</div>
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-ivory dark:bg-slate-800 p-4 shadow-sm border border-primary/5">
+<div class="flex flex-[2_2_0px] flex-col justify-between">
+<div class="flex flex-col gap-1">
+<p class="text-charcoal dark:text-slate-100 text-base font-bold">Max</p>
+<p class="text-slate-500 text-sm font-medium">Perro • Golden Retriever</p>
+</div>
+<button class="flex items-center justify-center rounded-lg h-8 px-4 bg-primary/10 text-primary text-sm font-bold w-fit mt-4">
+<span>Editar</span>
+</button>
+</div>
+<div class="w-32 h-32 bg-center bg-no-repeat bg-cover rounded-xl" data-alt="Golden retriever puppy smiling at camera" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDeo_6a6rPqEBAllS_t6Dr4wirCCtP5XAh_VT1-IIj08vYNQPvBKhbsYZ-tYlhFfJd86j_zD7R3FDmyBDcIkzQXChOLhLXtp5CTx7sJS1VhAcW6mRYM8sARuds2VEat5LXiOCdIETni-xiLzvja0mMD2FRCO0439Q30rjmZ71_4Z88ppPFx2IhyWygYxNJbGoT4la_xiSHYcQ6w131z1-MpEDxYxyDdWlHJdaPJ32CBB8sSFiCMnekhM8ADhHpvqWx7DysdgRV8cw");'></div>
+</div>
+</div>
+</main>
+<div class="fixed inset-0 z-50 bg-charcoal/40 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+<div class="bg-white dark:bg-slate-900 w-full max-w-lg h-[92vh] sm:h-auto sm:max-h-[85vh] rounded-t-3xl sm:rounded-3xl overflow-hidden flex flex-col shadow-2xl">
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between sticky top-0 bg-white dark:bg-slate-900 z-10">
+<button class="p-2 text-slate-400">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h3 class="text-charcoal dark:text-slate-100 font-bold text-lg">Agregar Mascota</h3>
+<button class="text-primary font-bold px-2">Guardar</button>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-8 pb-12">
+<section class="space-y-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm">fingerprint</span>
+<h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">Identidad</h4>
+</div>
+<div class="flex flex-col items-center justify-center p-6 border-2 border-dashed border-slate-100 dark:border-slate-800 rounded-2xl bg-ivory dark:bg-slate-800/50">
+<div class="size-20 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-3xl text-slate-400">add_a_photo</span>
+</div>
+<p class="text-xs font-medium text-slate-500">Subir foto de perfil</p>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<div class="space-y-1">
+<label class="text-[11px] font-bold text-slate-400 ml-1">NOMBRE</label>
+<input class="w-full bg-ivory dark:bg-slate-800 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/30 text-charcoal dark:text-slate-100" placeholder="Ej. Coco" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="text-[11px] font-bold text-slate-400 ml-1">ESPECIE</label>
+<select class="w-full bg-ivory dark:bg-slate-800 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/30 text-charcoal dark:text-slate-100">
+<option>Perro</option>
+<option>Gato</option>
+<option>Ave</option>
+<option>Otro</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="text-[11px] font-bold text-slate-400 ml-1">RAZA</label>
+<input class="w-full bg-ivory dark:bg-slate-800 border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/30 text-charcoal dark:text-slate-100" placeholder="Ej. Beagle" type="text"/>
+</div>
+</div>
+</div>
+</section>
+<section class="space-y-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm">health_and_safety</span>
+<h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">Salud y Vacunas</h4>
+</div>
+<div class="bg-ivory dark:bg-slate-800 p-4 rounded-2xl space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-slate-600 dark:text-slate-300">Esquema completo</span>
+<div class="relative inline-flex h-6 w-11 items-center rounded-full bg-primary/20">
+<span class="inline-block h-4 w-4 transform rounded-full bg-primary transition translate-x-6"></span>
+</div>
+</div>
+<div class="space-y-1 pt-2 border-t border-slate-100 dark:border-slate-700">
+<label class="text-[11px] font-bold text-slate-400">ÚLTIMA VISITA VET</label>
+<div class="flex items-center gap-2 text-charcoal dark:text-slate-100">
+<span class="material-symbols-outlined text-lg text-slate-400">calendar_today</span>
+<span class="text-sm font-medium">12 Octubre, 2023</span>
+</div>
+</div>
+</div>
+</section>
+<section class="space-y-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm">notifications_active</span>
+<h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">Recordatorios</h4>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<div class="flex items-center justify-between bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-4 rounded-2xl shadow-sm">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-orange-600">vaccines</span>
+</div>
+<div>
+<p class="text-sm font-bold text-charcoal dark:text-slate-100">Próxima Vacuna</p>
+<p class="text-[11px] text-slate-400 font-medium">Refuerzo Anual</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</div>
+</div>
+</section>
+<section class="space-y-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm">notes</span>
+<h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">Notas Adicionales</h4>
+</div>
+<textarea class="w-full bg-ivory dark:bg-slate-800 border-none rounded-2xl px-4 py-3 focus:ring-2 focus:ring-primary/30 text-charcoal dark:text-slate-100 text-sm" placeholder="Alergias, comportamiento, comida favorita..." rows="3"></textarea>
+</section>
+</div>
+</div>
+</div>
+<nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-t border-slate-100 dark:border-slate-800 px-6 py-3 flex justify-between items-center">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">pets</span>
+<span class="text-[10px] font-bold">Mascotas</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-[10px] font-bold">Calendario</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">Perfil</span>
+</a>
+</nav>
+</div>
+</body></html>

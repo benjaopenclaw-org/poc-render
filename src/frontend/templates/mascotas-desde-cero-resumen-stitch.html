@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                        "sage": "#8da08e",
+                        "terracotta": "#c05e42",
+                        "warm-beige": "#f2ede9"
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Work Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-dot {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="max-w-md mx-auto min-h-screen flex flex-col bg-background-light dark:bg-background-dark">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-4 pt-6 pb-2">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">pets</span>
+<h1 class="text-xl font-bold tracking-tight">Pet Care</h1>
+</div>
+<button class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+<nav class="flex gap-6">
+<a class="pb-2 border-b-2 border-primary text-slate-900 dark:text-white font-semibold text-sm" href="#">Resumen</a>
+<a class="pb-2 border-b-2 border-transparent text-slate-400 dark:text-slate-500 font-semibold text-sm" href="#">Cuidados</a>
+<a class="pb-2 border-b-2 border-transparent text-slate-400 dark:text-slate-500 font-semibold text-sm" href="#">Historial</a>
+</nav>
+</header>
+<main class="flex-1 p-4 pb-24 space-y-6">
+<!-- KPI Cards -->
+<section class="grid grid-cols-3 gap-3">
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-primary/5">
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Mascotas</p>
+<p class="text-2xl font-bold text-primary">3</p>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-primary/5">
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Vacunas</p>
+<div class="flex items-center gap-1">
+<p class="text-2xl font-bold text-terracotta">2</p>
+<span class="material-symbols-outlined text-terracotta text-sm">priority_high</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-primary/5">
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Tareas</p>
+<p class="text-2xl font-bold text-sage">8</p>
+</div>
+</section>
+<!-- Weekly Schedule (Calendar View) -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-lg font-bold">Calendario Semanal</h2>
+<button class="text-primary text-sm font-medium">Ver todo</button>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm border border-primary/5 overflow-hidden">
+<div class="flex justify-between mb-6 text-center">
+<div class="flex flex-col gap-1">
+<span class="text-[10px] text-slate-400 font-bold">LUN</span>
+<span class="size-8 flex items-center justify-center rounded-full text-sm font-bold">12</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] text-slate-400 font-bold">MAR</span>
+<span class="size-8 flex items-center justify-center rounded-full text-sm font-bold">13</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] text-primary font-bold">MIÉ</span>
+<span class="size-8 flex items-center justify-center rounded-full bg-primary text-white text-sm font-bold shadow-md shadow-primary/30">14</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] text-slate-400 font-bold">JUE</span>
+<span class="size-8 flex items-center justify-center rounded-full text-sm font-bold">15</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] text-slate-400 font-bold">VIE</span>
+<span class="size-8 flex items-center justify-center rounded-full text-sm font-bold">16</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex gap-3 items-center p-3 rounded-lg bg-orange-50 dark:bg-orange-900/20 border-l-4 border-primary">
+<div class="size-10 rounded-full bg-white dark:bg-slate-700 flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined">medication</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-slate-900 dark:text-slate-100">Medicación Corazón</p>
+<p class="text-[10px] text-slate-500">Luna • 08:00 AM</p>
+</div>
+<span class="material-symbols-outlined text-slate-300">check_circle</span>
+</div>
+<div class="flex gap-3 items-center p-3 rounded-lg bg-sage/10 border-l-4 border-sage">
+<div class="size-10 rounded-full bg-white dark:bg-slate-700 flex items-center justify-center text-sage shadow-sm">
+<span class="material-symbols-outlined">directions_walk</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-slate-900 dark:text-slate-100">Paseo Largo</p>
+<p class="text-[10px] text-slate-500">Bruno • 10:30 AM</p>
+</div>
+<span class="material-symbols-outlined text-slate-300">radio_button_unchecked</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Vaccination Timeline -->
+<section>
+<h2 class="text-lg font-bold mb-4">Línea de Vacunación</h2>
+<div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-primary/5">
+<div class="relative space-y-8 before:absolute before:inset-0 before:ml-2 before:h-full before:w-0.5 before:bg-slate-100 dark:before:bg-slate-700">
+<div class="relative flex items-center gap-4">
+<div class="absolute -left-1.5 size-4 rounded-full bg-terracotta border-4 border-white dark:border-slate-800"></div>
+<div class="ml-6 flex-1">
+<div class="flex justify-between items-start">
+<h3 class="text-sm font-bold text-terracotta">Rabia (Vencida)</h3>
+<span class="text-[10px] font-bold px-2 py-0.5 bg-terracotta/10 text-terracotta rounded-full uppercase">Hace 2d</span>
+</div>
+<p class="text-xs text-slate-500">Mascota: Oliver</p>
+</div>
+</div>
+<div class="relative flex items-center gap-4">
+<div class="absolute -left-1.5 size-4 rounded-full bg-primary border-4 border-white dark:border-slate-800"></div>
+<div class="ml-6 flex-1">
+<div class="flex justify-between items-start">
+<h3 class="text-sm font-bold">Parvovirus</h3>
+<span class="text-[10px] font-bold text-slate-400 uppercase">En 12 días</span>
+</div>
+<p class="text-xs text-slate-500">Mascota: Luna</p>
+</div>
+</div>
+<div class="relative flex items-center gap-4 opacity-50">
+<div class="absolute -left-1.5 size-4 rounded-full bg-slate-300 border-4 border-white dark:border-slate-800"></div>
+<div class="ml-6 flex-1">
+<h3 class="text-sm font-bold">Triple Felina</h3>
+<p class="text-xs text-slate-500">Mascota: Bruno • Ago 2024</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Health Insights / Weight Tracking -->
+<section>
+<h2 class="text-lg font-bold mb-4">Control de Peso</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-primary/5">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-bold">Oliver</span>
+<span class="text-[10px] text-sage font-bold flex items-center"><span class="material-symbols-outlined text-[12px]">trending_down</span> -0.2kg</span>
+</div>
+<div class="h-12 w-full flex items-end gap-1 px-1">
+<div class="bg-primary/20 w-full h-3/4 rounded-t-sm"></div>
+<div class="bg-primary/20 w-full h-1/2 rounded-t-sm"></div>
+<div class="bg-primary/20 w-full h-2/3 rounded-t-sm"></div>
+<div class="bg-primary/20 w-full h-3/5 rounded-t-sm"></div>
+<div class="bg-primary w-full h-1/3 rounded-t-sm"></div>
+</div>
+<p class="text-lg font-bold mt-2">12.4 <span class="text-xs font-normal text-slate-400">kg</span></p>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-primary/5">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-bold">Luna</span>
+<span class="text-[10px] text-terracotta font-bold flex items-center"><span class="material-symbols-outlined text-[12px]">trending_up</span> +0.5kg</span>
+</div>
+<div class="h-12 w-full flex items-end gap-1 px-1">
+<div class="bg-primary/20 w-full h-1/2 rounded-t-sm"></div>
+<div class="bg-primary/20 w-full h-2/3 rounded-t-sm"></div>
+<div class="bg-primary/20 w-full h-3/4 rounded-t-sm"></div>
+<div class="bg-primary/20 w-full h-4/5 rounded-t-sm"></div>
+<div class="bg-primary w-full h-[90%] rounded-t-sm"></div>
+</div>
+<p class="text-lg font-bold mt-2">4.8 <span class="text-xs font-normal text-slate-400">kg</span></p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-100 dark:border-slate-800 px-6 pb-6 pt-3 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined active-dot">dashboard</span>
+<span class="text-[10px] font-bold">Resumen</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">pets</span>
+<span class="text-[10px] font-bold">Mascotas</span>
+</a>
+<div class="relative -top-6">
+<button class="size-14 bg-primary text-white rounded-full shadow-lg shadow-primary/40 flex items-center justify-center border-4 border-background-light dark:border-background-dark">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">health_and_safety</span>
+<span class="text-[10px] font-bold">Salud</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">Ajustes</span>
+</a>
+</nav>
+</div>
+</body></html>

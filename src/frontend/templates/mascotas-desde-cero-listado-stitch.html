@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pet Management Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                        "accent-green": "#4a6741",
+                        "warm-beige": "#f4f2f0",
+                        "border-warm": "#e6dfdb"
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Work Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .active-tab { border-bottom: 2px solid #ec5b13; color: #ec5b13; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex flex-col h-screen max-w-md mx-auto bg-white dark:bg-background-dark shadow-xl overflow-hidden relative">
+<!-- Header Section -->
+<header class="p-4 pt-6 bg-white dark:bg-background-dark border-b border-border-warm dark:border-slate-800">
+<div class="flex items-center justify-between mb-4">
+<h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Pet Dashboard</h1>
+<button class="bg-primary text-white p-2 rounded-full flex items-center justify-center hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<!-- Summary Cards -->
+<div class="flex gap-3 mb-4">
+<div class="flex-1 bg-warm-beige dark:bg-slate-800 p-4 rounded-xl border border-border-warm dark:border-slate-700">
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Pets</p>
+<p class="text-2xl font-bold text-primary">4</p>
+</div>
+<div class="flex-1 bg-warm-beige dark:bg-slate-800 p-4 rounded-xl border border-border-warm dark:border-slate-700">
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Upcoming Care</p>
+<p class="text-2xl font-bold text-primary">2</p>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-warm-beige dark:bg-slate-800 border-none rounded-xl focus:ring-2 focus:ring-primary/50 text-sm" placeholder="Search pets..." type="text"/>
+</div>
+</header>
+<!-- Navigation Tabs -->
+<nav class="flex border-b border-border-warm dark:border-slate-800 bg-white dark:bg-background-dark">
+<button class="flex-1 py-3 text-sm font-semibold active-tab">Listado</button>
+<button class="flex-1 py-3 text-sm font-semibold text-slate-500 dark:text-slate-400">Resumen</button>
+<button class="flex-1 py-3 text-sm font-semibold text-slate-500 dark:text-slate-400">Cuidados</button>
+</nav>
+<!-- Main Content (Scrollable List) -->
+<main class="flex-1 overflow-y-auto p-4 space-y-4 pb-24 bg-background-light dark:bg-background-dark">
+<!-- Pet Card 1 -->
+<div class="bg-white dark:bg-slate-800 rounded-xl p-4 border border-border-warm dark:border-slate-700 shadow-sm flex flex-col gap-3">
+<div class="flex items-start gap-4">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-primary/10">
+<img class="w-full h-full object-cover" data-alt="Golden Retriever puppy sitting happily" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg8WQv83L3N1L_Gga7JtHWE4Deiyyit_SO6zRpC75VvxeYOwmDudZKl2ZovMs-reyMqZk-LnnlQ91SASuTRItZe-cLWTOZc4hnC9cm8MpWgelJnvZE10c7HeKRe12H2yu7rC7xP01fH2fe9AKNeAwdMZ34mXl-6H3qrBZyzCvObu-xjp7hObrfNzGOmeTTbDTv39c4Q7k6_P85ZR9daRtoQBAuAzcKmcPom-c9dblMWrO9qcOH_4j_oxCSQ5HQlxTJSU62EGXX14s9"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg text-slate-900 dark:text-slate-100 leading-tight">Max</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">Golden Retriever • 2 years</p>
+</div>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-accent-green/10 text-accent-green text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-accent-green"></span> Healthy
+                            </span>
+</div>
+<div class="mt-2 grid grid-cols-2 gap-2">
+<div class="text-[10px] text-slate-500 dark:text-slate-400">
+<p class="font-semibold uppercase">Vaccination</p>
+<p class="text-slate-700 dark:text-slate-200">Up to date</p>
+</div>
+<div class="text-[10px] text-slate-500 dark:text-slate-400">
+<p class="font-semibold uppercase">Next Care</p>
+<p class="text-primary font-medium">Oct 24, 2023</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-2 pt-2 border-t border-border-warm dark:border-slate-700">
+<button class="flex-1 py-2 rounded-lg bg-warm-beige dark:bg-slate-700 text-xs font-semibold flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">edit</span> Edit
+                    </button>
+<button class="flex-1 py-2 rounded-lg bg-warm-beige dark:bg-slate-700 text-xs font-semibold text-red-500 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">delete</span> Delete
+                    </button>
+</div>
+</div>
+<!-- Pet Card 2 -->
+<div class="bg-white dark:bg-slate-800 rounded-xl p-4 border border-border-warm dark:border-slate-700 shadow-sm flex flex-col gap-3">
+<div class="flex items-start gap-4">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-primary/10">
+<img class="w-full h-full object-cover" data-alt="Sleek black cat looking curious" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmwlyIAAgUe7RqehiUrrCdgu6MRLcFkCn1nesvOZYq6fDuxHTnLB2VNUtMEnjSUhDp4b9iGaGrzKGzevxk4BQzk_jticH4q5Dyqi92uMNXZOYyyCKrbuZ2-CX5WfNwJhPuG2saABRKvqEpfw7_XVACu-NCUlXaRTlchf066VmKLvoHjsFo0QA7vlohlJA2lXcqosA725HmuXUm3L_CB-x7oOI-6bivwz5bs8IzqFYdsBvxiB0KENKh_xS3-6PMHaRG9Tyb4zKjS1a4"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg text-slate-900 dark:text-slate-100 leading-tight">Luna</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">Siamese Mix • 4 years</p>
+</div>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Check-up due
+                            </span>
+</div>
+<div class="mt-2 grid grid-cols-2 gap-2">
+<div class="text-[10px] text-slate-500 dark:text-slate-400">
+<p class="font-semibold uppercase">Vaccination</p>
+<p class="text-slate-700 dark:text-slate-200">Pending Rabies</p>
+</div>
+<div class="text-[10px] text-slate-500 dark:text-slate-400">
+<p class="font-semibold uppercase">Next Care</p>
+<p class="text-primary font-medium">Tomorrow</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-2 pt-2 border-t border-border-warm dark:border-slate-700">
+<button class="flex-1 py-2 rounded-lg bg-warm-beige dark:bg-slate-700 text-xs font-semibold flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">edit</span> Edit
+                    </button>
+<button class="flex-1 py-2 rounded-lg bg-warm-beige dark:bg-slate-700 text-xs font-semibold text-red-500 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">delete</span> Delete
+                    </button>
+</div>
+</div>
+<!-- Pet Card 3 -->
+<div class="bg-white dark:bg-slate-800 rounded-xl p-4 border border-border-warm dark:border-slate-700 shadow-sm flex flex-col gap-3">
+<div class="flex items-start gap-4">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-primary/10">
+<img class="w-full h-full object-cover" data-alt="Small white rabbit in garden" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYhfaRMrdRiEHyZDjrSIQ-bfJJAIiigeCaxJxzDiLwVczMnYPm7pyAR_-d6KUouehfu8XpknK7ov4zOxPx9QpNgY8DZY1YlhPSL6ikFGGK9By5Tfgtpp8iY8srABrfG9IL0_PycvQCfmQkXrWcZU5dMg1ee1hEFkuWUkMh03IRIg3Qa3p63-zgGWsDObaG3xCT6MxUNB8gooev9MAchu0YCtCINYlWsOxwBPU8tP_ctLlVGCE4yMwnVoWLLO_lVc871l6sMdncGOPt"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg text-slate-900 dark:text-slate-100 leading-tight">Oliver</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">Lop Rabbit • 1 year</p>
+</div>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-accent-green/10 text-accent-green text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-accent-green"></span> Healthy
+                            </span>
+</div>
+<div class="mt-2 grid grid-cols-2 gap-2">
+<div class="text-[10px] text-slate-500 dark:text-slate-400">
+<p class="font-semibold uppercase">Vaccination</p>
+<p class="text-slate-700 dark:text-slate-200">Up to date</p>
+</div>
+<div class="text-[10px] text-slate-500 dark:text-slate-400">
+<p class="font-semibold uppercase">Next Care</p>
+<p class="text-primary font-medium">Nov 12, 2023</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-2 pt-2 border-t border-border-warm dark:border-slate-700">
+<button class="flex-1 py-2 rounded-lg bg-warm-beige dark:bg-slate-700 text-xs font-semibold flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">edit</span> Edit
+                    </button>
+<button class="flex-1 py-2 rounded-lg bg-warm-beige dark:bg-slate-700 text-xs font-semibold text-red-500 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">delete</span> Delete
+                    </button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<div class="absolute bottom-0 left-0 w-full border-t border-border-warm dark:border-slate-800 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md px-6 pb-6 pt-3 z-50">
+<div class="flex justify-between items-center max-w-sm mx-auto">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<p class="text-[10px] font-bold">Home</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">pets</span>
+<p class="text-[10px] font-medium">Pets</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<p class="text-[10px] font-medium">Schedule</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<p class="text-[10px] font-medium">Health</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-[10px] font-medium">Settings</p>
+</a>
+</div>
+</div>
+</div>
+</body></html>
