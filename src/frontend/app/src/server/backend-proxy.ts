@@ -1,4 +1,3 @@
-import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 type RequestInitWithBody = RequestInit & { body?: BodyInit | null };
@@ -16,23 +15,13 @@ export function getPetsApiBaseUrl(): string {
   return getRequiredEnv("MS_PETS_API_URL");
 }
 
-export async function getAccessToken(): Promise<string | null> {
-  return (await cookies()).get("access_token")?.value ?? null;
-}
-
 export async function proxyToPetsApi(
   request: NextRequest,
   path: string,
   init?: RequestInitWithBody
 ): Promise<Response> {
-  const accessToken = await getAccessToken();
-
-  if (!accessToken) {
-    return NextResponse.json({ message: "No authenticated session was found." }, { status: 401 });
-  }
-
   const headers = new Headers(init?.headers ?? request.headers);
-  headers.set("authorization", `Bearer ${accessToken}`);
+  headers.delete("authorization");
 
   if (init?.body) {
     headers.set("content-type", "application/json");

@@ -1,6 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  serverExternalPackages: ["@rekodi/react-auth"]
-};
+const nextConfig = {};
 
 export default nextConfig;

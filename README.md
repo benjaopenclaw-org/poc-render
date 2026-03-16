@@ -13,8 +13,7 @@ Monorepo con frontend en Next.js y microservicios NestJS.
 
 - Node.js 20 o superior.
 - npm 10 o superior.
-- MySQL 8 disponible en `localhost:3306`.
-- proveedor OAuth/OpenID levantado en `http://localhost:8082`.
+- MySQL 8 o PostgreSQL disponible.
 - MCP de Google Stitch disponible para iterar UI.
 
 ## Configuración de entornos
@@ -23,17 +22,16 @@ Frontend:
 
 1. Copiar [src/frontend/app/.env.local.example](/Users/pablo/Documents/Trabajo/CREACION/poc-render4/src/frontend/app/.env.local.example) a `src/frontend/app/.env.local`.
 2. Ajustar `MS_PETS_API_URL` si el microservicio corre en otro puerto.
-3. Usar `OAUTH2_SCOPE=profile userinfo`.
 
 Microservicio:
 
 1. Copiar [src/microservices/ms-pets/.env.example](/Users/pablo/Documents/Trabajo/CREACION/poc-render4/src/microservices/ms-pets/.env.example) a `src/microservices/ms-pets/.env`.
 2. Definir `DB_PASSWORD` real para `pets_user`.
-3. Mantener `OAUTH2_ISSUER=http://oauth2:8080` porque el issuer publicado por `/.well-known/openid-configuration` usa ese valor exacto.
+3. Si la base existente es PostgreSQL, usar `DB_TYPE=postgres` y preferir `DATABASE_URL`.
 
 ## Base de datos
 
-Crear el esquema `pets` con:
+Crear el esquema `pets` en MySQL con:
 
 ```bash
 mysql --protocol=TCP -h "$(grep '^DB_HOST=' .env | sed 's/^DB_HOST=//' | cut -d'#' -f1 | xargs)" \
@@ -43,7 +41,7 @@ mysql --protocol=TCP -h "$(grep '^DB_HOST=' .env | sed 's/^DB_HOST=//' | cut -d'
   < src/database/pets/01-schema-pets.sql
 ```
 
-Cargar datos base:
+Cargar datos base en MySQL:
 
 ```bash
 mysql --protocol=TCP -h "$(grep '^DB_HOST=' .env | sed 's/^DB_HOST=//' | cut -d'#' -f1 | xargs)" \
@@ -51,6 +49,18 @@ mysql --protocol=TCP -h "$(grep '^DB_HOST=' .env | sed 's/^DB_HOST=//' | cut -d'
   -u "$(grep '^DB_USER=' .env | sed 's/^DB_USER=//' | cut -d'#' -f1 | xargs)" \
   -p"$(grep '^DB_PASSWORD=' .env | sed 's/^DB_PASSWORD=//' | cut -d'#' -f1 | xargs)" \
   < src/database/pets/02-rbac-pets.sql
+```
+
+Si la instancia existente es PostgreSQL, crear el esquema con:
+
+```bash
+psql "$DATABASE_URL" -f src/database/pets/01-schema-pets-postgres.sql
+```
+
+Cargar datos base en PostgreSQL:
+
+```bash
+psql "$DATABASE_URL" -f src/database/pets/02-seed-pets-postgres.sql
 ```
 
 ## Ejecución
@@ -77,6 +87,23 @@ npm run dev:ms-pets
 
 - Pantalla única `Mascotas de la casa` con pestañas `Listado`, `Resumen` y `Cuidados`.
 - Modal para crear y editar mascotas dentro de la misma pantalla.
-- Proxy server-side en Next.js para reenviar `httpOnly cookies` como `Authorization: Bearer`.
-- API protegida en NestJS para listar, crear, editar, eliminar, resumir y listar recordatorios.
+- Proxy server-side en Next.js para reenviar requests al microservicio `ms-pets`.
+- API pública en NestJS para listar, crear, editar, eliminar, resumir y listar recordatorios.
 - Plantillas base de Stitch guardadas en `src/frontend/templates`.
+
+## Deploy en Render
+
+El repo incluye [render.yaml](/Users/pablo/Documents/Trabajo/CREACION/poc-render4/render.yaml) para desplegar:
+
+- `poc-render-frontend`
+- `poc-render-ms-pets`
+
+Variables que debes completar en Render:
+
+- En `poc-render-ms-pets`:
+  - `FRONTEND_ORIGIN`
+  - `DB_TYPE`
+  - `DATABASE_URL` o alternativamente `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`
+  - `DB_SSL`
+- En `poc-render-frontend`:
+  - `MS_PETS_API_URL`

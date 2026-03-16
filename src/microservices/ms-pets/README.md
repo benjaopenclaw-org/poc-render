@@ -4,7 +4,10 @@ Microservicio NestJS para mantener la lista de mascotas del hogar.
 
 ## Esquema asociado
 
-Este microservicio usa el esquema MySQL `pets`, definido en [src/database/pets/01-schema-pets.sql](/Users/pablo/Documents/Trabajo/CREACION/poc-render4/src/database/pets/01-schema-pets.sql).
+Este microservicio usa el esquema `pets` y puede correr sobre:
+
+- MySQL, usando [01-schema-pets.sql](/Users/pablo/Documents/Trabajo/CREACION/poc-render4/src/database/pets/01-schema-pets.sql)
+- PostgreSQL, usando [01-schema-pets-postgres.sql](/Users/pablo/Documents/Trabajo/CREACION/poc-render4/src/database/pets/01-schema-pets-postgres.sql)
 
 ## Variables de entorno
 
@@ -14,8 +17,9 @@ Puntos relevantes:
 
 - `PORT=3002`
 - `DB_NAME=pets`
-- `OAUTH2_ISSUER=http://oauth2:8080`
-- `OAUTH2_JWKS_URL=http://localhost:8082/oauth2/jwks`
+- `DB_TYPE=mysql` por defecto
+- `DATABASE_URL` opcional para usar connection string completa
+- `DB_SSL=false` por defecto
 
 ## Ejecución
 

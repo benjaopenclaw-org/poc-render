@@ -23,7 +23,7 @@ export class PetEntity {
   @Column({ length: 120 })
   breed!: string;
 
-  @Column({ name: "age_years", type: "int", unsigned: true })
+  @Column({ name: "age_years", type: "int" })
   ageYears!: number;
 
   @Column({
@@ -48,12 +48,12 @@ export class PetEntity {
   @Column({ type: "text", default: "" })
   notes!: string;
 
-  @Column({ name: "next_care_at", type: "datetime", nullable: true })
+  @Column({ name: "next_care_at", type: "timestamp", nullable: true })
   nextCareAt!: Date | null;
 
-  @CreateDateColumn({ name: "created_at", type: "datetime" })
+  @CreateDateColumn({ name: "created_at", type: "timestamp" })
   createdAt!: Date;
 
-  @UpdateDateColumn({ name: "updated_at", type: "datetime" })
+  @UpdateDateColumn({ name: "updated_at", type: "timestamp" })
   updatedAt!: Date;
 }

@@ -1,11 +1,9 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from "@nestjs/common";
-import { JwtAuthGuard } from "@rekodi/nest-auth";
+import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/common";
 import { CreatePetDto } from "./dto/create-pet.dto";
 import { UpdatePetDto } from "./dto/update-pet.dto";
 import { PetsService } from "./pets.service";
 
 @Controller("pets")
-@UseGuards(JwtAuthGuard)
 export class PetsController {
   constructor(private readonly petsService: PetsService) {}
 

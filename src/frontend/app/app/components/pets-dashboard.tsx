@@ -1,6 +1,5 @@
 "use client";
 
-import { RequireAuth, useAuth, useCurrentUser } from "@rekodi/react-auth";
 import { FormEvent, useEffect, useMemo, useState, useTransition } from "react";
 import {
   defaultPetFormValues,
@@ -84,8 +83,6 @@ function petInitials(pet: PetRecord): string {
 }
 
 function DashboardContent() {
-  const { requestLogin, logout } = useAuth();
-  const currentUser = useCurrentUser() as { username?: string; email?: string } | null;
   const [activeTab, setActiveTab] = useState<TabId>("listado");
   const [pets, setPets] = useState<PetRecord[]>([]);
   const [summary, setSummary] = useState<PetSummary | null>(null);
@@ -109,11 +106,6 @@ function DashboardContent() {
         fetch("/api/ms-pets/pets/summary", { credentials: "include", cache: "no-store" }),
         fetch("/api/ms-pets/pets/reminders", { credentials: "include", cache: "no-store" })
       ]);
-
-      if ([petsResponse, summaryResponse, remindersResponse].some((response) => response.status === 401)) {
-        requestLogin("/app");
-        return;
-      }
 
       if (!petsResponse.ok || !summaryResponse.ok || !remindersResponse.ok) {
         throw new Error("No fue posible cargar los datos de mascotas.");
@@ -244,12 +236,10 @@ function DashboardContent() {
         </nav>
 
         <div className="sidebar-account">
-          <span className="sidebar-account-avatar">
-            {currentUser?.username?.slice(0, 2)?.toUpperCase() ?? "MI"}
-          </span>
+          <span className="sidebar-account-avatar">MI</span>
           <div>
-            <strong>{currentUser?.username ?? "Mi hogar"}</strong>
-            <p>{currentUser?.email ?? "Sesión protegida por OAuth"}</p>
+            <strong>Mi hogar</strong>
+            <p>Modo público de prueba sin autenticación</p>
           </div>
         </div>
       </aside>
@@ -266,9 +256,6 @@ function DashboardContent() {
           <div className="header-actions">
             <button className="primary-cta" type="button" onClick={openCreateModal}>
               Anadir Mascota
-            </button>
-            <button className="secondary-cta" type="button" onClick={() => logout()}>
-              Cerrar sesión
             </button>
           </div>
         </header>
@@ -723,9 +710,5 @@ function DashboardContent() {
 }
 
 export function PetsDashboard() {
-  return (
-    <RequireAuth fallback={<div className="page-loader">Redirigiendo a login...</div>}>
-      <DashboardContent />
-    </RequireAuth>
-  );
+  return <DashboardContent />;
 }

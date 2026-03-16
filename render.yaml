@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: poc-render-ms-pets
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build:ms-pets
+    startCommand: npm run --workspace ms-pets start
+    healthCheckPath: /pets/summary
+    envVars:
+      - key: NODE_VERSION
+        value: 20.19.0
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: DB_TYPE
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_SSL
+        sync: false
+
+  - type: web
+    name: poc-render-frontend
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build:frontend
+    startCommand: npm run --workspace frontend start -- --hostname 0.0.0.0 --port $PORT
+    healthCheckPath: /app
+    envVars:
+      - key: NODE_VERSION
+        value: 20.19.0
+      - key: MS_PETS_API_URL
+        sync: false
