@@ -25,6 +25,7 @@ type SupportedDbType = "mysql" | "postgres";
           return {
             type: dbType,
             url: databaseUrl,
+            schema: dbType === "postgres" ? configService.get<string>("DB_SCHEMA") ?? "pets" : undefined,
             ssl,
             entities: [PetEntity],
             synchronize: false
@@ -38,6 +39,7 @@ type SupportedDbType = "mysql" | "postgres";
           username: configService.getOrThrow<string>("DB_USER"),
           password: configService.getOrThrow<string>("DB_PASSWORD"),
           database: configService.getOrThrow<string>("DB_NAME"),
+          schema: dbType === "postgres" ? configService.get<string>("DB_SCHEMA") ?? "pets" : undefined,
           ssl,
           entities: [PetEntity],
           synchronize: false

@@ -9,7 +9,7 @@ import {
 export type PetHealthStatus = "healthy" | "attention" | "checkup";
 export type PetVaccinationStatus = "up_to_date" | "pending" | "overdue";
 
-@Entity({ name: "pets" })
+@Entity({ schema: "pets", name: "pets" })
 export class PetEntity {
   @PrimaryGeneratedColumn("uuid")
   id!: string;
